@@ -1,0 +1,11 @@
+{
+	"appId": "com.electron.${name}",
+	"productName": "Sveltekit Electron Bootstrap",
+	"directories": {
+		"buildResources": "build",
+		"output": "dist"
+	},
+	"files": [
+		"build/**/*"
+	]
+}

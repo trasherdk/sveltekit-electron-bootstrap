@@ -1,0 +1,45 @@
+{
+  "name": "sveltekit-electron-bootstrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/app/index.js",
+  "scripts": {
+    "env:dev": "NODE_ENV=dev",
+    "env:prod": "cross-env NODE_ENV=production",
+    "build:app": "npm run env:prod && tsc",
+    "build:public": "(cd source/public && npm run build)",
+    "build:electron": "electron-builder -m --config build.config.json",
+    "build": "npm run build:app && npm run build:public && npm run build:electron",
+    "dev:app": "tsc --watch",
+    "dev:public": "(cd source/public && npm run dev)",
+    "dev": "npm run env:dev && concurrently -n=typescript,sveltekit,electron -c='#3178C6','#FF3E00','#9FEAf9' \"npm run dev:app\" \"npm run dev:public\" \"npm run start\"",
+    "start": "electron build/app/index.js",
+    "postinstall": "(cd source/public && npm install)"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Sebastian Inman",
+    "email": "sebastian@brbndigital.com"
+  },
+  "license": "ISC",
+  "browserslist": [
+    "Chrome 89"
+  ],
+  "dependencies": {
+    "cors": "^2.8.5",
+    "electron-context-menu": "^3.1.1",
+    "electron-window-state": "^5.0.3",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "concurrently": "^6.2.1",
+    "cross-env": "^7.0.3",
+    "electron": "^13.2.1",
+    "electron-builder": "^22.11.7",
+    "electron-packager": "^15.3.0",
+    "electron-reloader": "^1.2.1",
+    "electron-updater": "^4.3.9"
+  }
+}
