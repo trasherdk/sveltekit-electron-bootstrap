@@ -6,17 +6,25 @@
   "scripts": {
     "env:dev": "NODE_ENV=dev",
     "env:prod": "cross-env NODE_ENV=production",
-    "build:app": "npm run env:prod && tsc",
+
+    "build:app": "(cd source/app && tsc)",
     "build:public": "(cd source/public && npm run build)",
-    "build:electron": "electron-builder -m --config build.config.json",
-    "build": "npm run build:app && npm run build:public && npm run build:electron",
-    "dev:app": "tsc --watch",
+    "build:electron": "electron-builder -m --config source/app/build.config.json",
+    "build": "npm run env:prod && npm run build:app && npm run build:public && npm run build:electron",
+
+    "dev:app": "(cd source/app && tsc --watch)",
     "dev:public": "(cd source/public && npm run dev)",
-    "dev": "npm run env:dev && concurrently -n=typescript,sveltekit,electron -c='#3178C6','#FF3E00','#9FEAf9' \"npm run dev:app\" \"npm run dev:public\" \"npm run start\"",
+    "dev": "npm run env:dev && npm run build:app && concurrently -n=typescript,sveltekit,electron -c='#3178C6','#FF3E00','#9FEAf9' \"npm run dev:app\" \"npm run dev:public\" \"npm run start\"",
+    
     "start": "electron build/app/index.js",
     "postinstall": "(cd source/public && npm install)"
   },
-  "keywords": [],
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "typescript",
+    "electron"
+  ],
   "author": {
     "name": "Sebastian Inman",
     "email": "sebastian@brbndigital.com"

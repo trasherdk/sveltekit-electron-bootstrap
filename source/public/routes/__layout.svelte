@@ -3,7 +3,7 @@
 {/if}
 
 <script lang="ts">
-    import "../styles/tailwind.scss"
+    import "../styles/app.scss"
     import { onMount } from "svelte"
 
     let ready: boolean = false
