@@ -2,8 +2,12 @@
 	"compilerOptions": {
 		"moduleResolution": "node",
 		"module": "es2020",
-		"lib": ["es2020", "DOM"],
+		"lib": [
+			"es2020",
+			"DOM"
+		],
 		"target": "es2019",
+		"strict": true,
 		"importsNotUsedAsValues": "error",
 		"isolatedModules": true,
 		"resolveJsonModule": true,
@@ -11,13 +15,23 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
+		"importHelpers": true,
 		"baseUrl": ".",
 		"allowJs": true,
 		"checkJs": true,
 		"paths": {
-			"$": ["./"],
-			"$/*": [".//*"]
+			"$": [
+				"./"
+			],
+			"$/*": [
+				".//*"
+			]
 		}
 	},
-	"include": ["**/*.d.ts", "**/*.ts", "**/*.svelte", "global.d.ts"]
+	"include": [
+		"**/*.d.ts",
+		"**/*.ts",
+		"**/*.svelte",
+		"global.d.ts"
+	]
 }

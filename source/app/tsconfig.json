@@ -10,6 +10,13 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "baseUrl": ".",
+    "paths": {
+      "tslib": [
+        "../../node_modules/tslib/tslib.d.ts"
+      ]
+    }
   }
 }
