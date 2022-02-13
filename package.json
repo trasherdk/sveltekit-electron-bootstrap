@@ -13,7 +13,7 @@
     "dev:app": "(cd source/app && tsc --watch)",
     "dev:public": "(cd source/public && npm run dev)",
     "dev": "npm run env:dev && npm run build:app && concurrently -n=typescript,sveltekit,electron -c='#3178C6','#FF3E00','#9FEAf9' \"npm run dev:app\" \"npm run dev:public\" \"npm run start\"",
-    "start": "electron build/app/index.js",
+    "start": "npm run env:prod && electron build/app/index.js",
     "postinstall": "(cd source/public && npm install)"
   },
   "keywords": [

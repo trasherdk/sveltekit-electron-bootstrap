@@ -24,7 +24,10 @@ export default class Application {
 
     private createWindow (options: Electron.BrowserWindowConstructorOptions = Window.DEFAULT_WINDOW_OPTIONS): void {
         if (!this._window) this._window = new Window(options)
+        /*
         this._window.load(`http://localhost:${this.env === 'dev' ? 3000 : this._port}`)
+        */
+        this._window.load(`http://localhost:${this._port}`)
     }
 
     private async quit (): Promise<void> {
